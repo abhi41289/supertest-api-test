@@ -4,30 +4,32 @@ import { request, API_TOKEN } from '../config/supertest'
 import faker from 'faker';
 
 describe('Validate GOREST Posts APIs', () => {
-    
-    let userID:number, postID:number;
+
+    let userID: number, postID: number;
 
     before(async () => {
         userID = await createRandomeUser();
     })
 
-    it('should validate /POSTS', async () => {
-        const postPayload = {
-            user_id: userID,
-            title: faker.lorem.sentence(),
-            body: faker.lorem.paragraph()
-        }
+    describe('Validate GOREST Posts APIs happy scenarios', () => {
+        it('should validate /POSTS', async () => {
+            const postPayload = {
+                user_id: userID,
+                title: faker.lorem.sentence(),
+                body: faker.lorem.paragraph()
+            }
 
-        const res = await request.post('posts')
-            .set('Authorization', `Bearer ${API_TOKEN}`)
-            .send(postPayload);
-        postID = res.body.data.id;
-        expect(res.body.code).to.be.eq(201);
-    })
+            const res = await request.post('posts')
+                .set('Authorization', `Bearer ${API_TOKEN}`)
+                .send(postPayload);
+            postID = res.body.data.id;
+            expect(res.body.code).to.be.eq(201);
+        })
 
 
-    it('should validate /POSTS/:id', async () => {
-        await request.get(`posts/${postID}`).set("Authorization", `Bearer ${API_TOKEN}`).expect(200);
+        it('should validate /POSTS/:id', async () => {
+            await request.get(`posts/${postID}`).set("Authorization", `Bearer ${API_TOKEN}`).expect(200);
+        })
     })
 
     describe('Validate GOREST Posts APIs Negative scenarios', () => {
