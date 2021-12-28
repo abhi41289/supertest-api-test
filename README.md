@@ -57,4 +57,4 @@ npm test  [run all tests]
 ```
 
 ## Sample Report:
-![image](https://user-images.githubusercontent.com/65847528/147535771-ca694f06-1270-4f6c-b26b-18dc9d9c4c74.png)
+![image](https://user-images.githubusercontent.com/65847528/147593338-28527381-d818-4b07-b90b-e0d7a1d5f5dd.png)
