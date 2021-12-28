@@ -4,7 +4,8 @@ import { request, API_TOKEN } from '../config/supertest'
 import faker from 'faker';
 
 describe('Validate GOREST Posts APIs', () => {
-    let postID, userID;
+    
+    let userID:number, postID:number;
 
     before(async () => {
         userID = await createRandomeUser();
@@ -21,7 +22,7 @@ describe('Validate GOREST Posts APIs', () => {
             .set('Authorization', `Bearer ${API_TOKEN}`)
             .send(postPayload);
         postID = res.body.data.id;
-        expect(res.body.code).to.be.eq(201);
+        expect(res.body.code).to.be.eq(200);
     })
 
 

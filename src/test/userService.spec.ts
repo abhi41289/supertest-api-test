@@ -4,12 +4,15 @@ import { createUserPayload, updateUserPayload } from '../resources/payloads';
 
 
 describe('Validate GOREST User APIs', () => {
-    let userID;
+
+    let userID: number;
 
     describe('Validate POST tests', () => {
- 
+
         it('should validate create users', async () => {
-            const response = await request.post('users').set("Authorization", `Bearer ${API_TOKEN}`).send(createUserPayload)
+            const response = await request.post('users')
+                .set("Authorization", `Bearer ${API_TOKEN}`)
+                .send(createUserPayload)
             expect(response.statusCode).to.equal(200);
             expect(response.body.code).to.equal(201);
             expect(response.body.data.name).to.equal(createUserPayload.name);
@@ -22,21 +25,26 @@ describe('Validate GOREST User APIs', () => {
 
     describe('Validate GET tests', () => {
         it('should validate /USERS', async () => {
-            const response = await request.get(`users?access-token=${API_TOKEN}`)
+            const response = await request.get('users').query({ 'access-token': API_TOKEN })
             expect(response.body.data).to.not.be.empty;
         })
 
         it('should validate /USERS:id', async () => {
-            const response = await request.get(`users/${userID}?access-token=${API_TOKEN}`)
+            const response = await request.get(`users/${userID}`).query({ 'access-token': API_TOKEN })
             expect(response.body.data.id).to.equal(userID);
         })
 
         it('should validate /USERS with query parameter', async () => {
-            const url = `users?access-token=${API_TOKEN}&page=5&gender=male&status=active`
-            const response = await request.get(url)
-
+            const query_params = {
+                'access-token': API_TOKEN,
+                'page': 5,
+                'gender': 'male',
+                'status': 'active'
+            }
+            const response = await request.get('users').query(query_params)
             expect(response.statusCode).to.equal(200);
-            response.body.data.forEach(data => {
+            response.body.data.forEach((data: any) => {
+                expect(data.id).to.satisfy(Number.isInteger);
                 expect(data.gender).to.equal('male');
                 expect(data.status).to.equal('active');
             })
