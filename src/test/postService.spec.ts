@@ -22,7 +22,7 @@ describe('Validate GOREST Posts APIs', () => {
             .set('Authorization', `Bearer ${API_TOKEN}`)
             .send(postPayload);
         postID = res.body.data.id;
-        expect(res.body.code).to.be.eq(200);
+        expect(res.body.code).to.be.eq(201);
     })
 
 
