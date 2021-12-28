@@ -8,8 +8,8 @@ API Test Automation is mocha framework to perform API testing using supertest Ty
 ## Getting Started
 Clone Repository
 ```bash
-1. git clone https://github.com/sadabnepal/APISupertestMochaJSFramework.git
-2. Navigate to APISupertestMochaJSFramework
+1. git clone https://github.com/sadabnepal/APISupertestMochaTypeScript.git
+2. Navigate to APISupertestMochaTypeScript
 ```
 
 Install the dependencies:
@@ -52,3 +52,4 @@ npm test
 ```
 
 ## Sample Report
+![image](https://user-images.githubusercontent.com/65847528/147535771-ca694f06-1270-4f6c-b26b-18dc9d9c4c74.png)
