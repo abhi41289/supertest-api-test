@@ -18,10 +18,12 @@ npm install
 ```
 
 API Sources
-- Localhost: http://localhost:3000/
-- ReqRes API: https://reqres.in/
+```
+http://localhost:3000   [Localhost API]
+https://gorest.co.in    [External API]
 
-Generate Token for API
+```
+Generate Token for external API
 ```bash
 - Open the URL "https://gorest.co.in/" --> sign up
 - Click on Login user drop down --> Access Token
