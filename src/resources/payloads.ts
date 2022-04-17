@@ -1,4 +1,6 @@
-import faker from 'faker';
+import faker from '@faker-js/faker';
+
+export const fakerAPI = faker;
 
 export const createUserPayload = {
     email: faker.internet.email(),

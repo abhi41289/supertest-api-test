@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { request, API_TOKEN } from '../config/supertest'
-import { createUserPayload, updateUserPayload } from '../resources/payloads';
+import { request, API_TOKEN } from 'src/config/supertest'
+import { createUserPayload, updateUserPayload } from 'src/resources/payloads';
 
 
 describe('Validate GOREST User APIs', () => {

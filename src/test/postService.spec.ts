@@ -1,7 +1,7 @@
 import { expect } from 'chai'
-import { createRandomeUser } from '../helper/createUser'
-import { request, API_TOKEN } from '../config/supertest'
-import faker from 'faker';
+import { createRandomeUser } from 'src/helper/createUser'
+import { request, API_TOKEN } from 'src/config/supertest'
+import { fakerAPI } from 'src/resources/payloads';
 
 describe('Validate GOREST Posts APIs', () => {
 
@@ -15,8 +15,8 @@ describe('Validate GOREST Posts APIs', () => {
         it('should validate /POSTS', async () => {
             const postPayload = {
                 user_id: userID,
-                title: faker.lorem.sentence(),
-                body: faker.lorem.paragraph()
+                title: fakerAPI.lorem.sentence(),
+                body: fakerAPI.lorem.paragraph()
             }
 
             const res = await request.post('posts')
@@ -37,8 +37,8 @@ describe('Validate GOREST Posts APIs', () => {
         it('should validate 401 Error code', async () => {
             const postPayload = {
                 user_id: userID,
-                title: faker.lorem.sentence(),
-                body: faker.lorem.paragraph()
+                title: fakerAPI.lorem.sentence(),
+                body: fakerAPI.lorem.paragraph()
             }
 
             const res = await request
@@ -52,7 +52,7 @@ describe('Validate GOREST Posts APIs', () => {
         it('should validate 422 Error code', async () => {
             const postPayload = {
                 user_id: userID,
-                title: faker.lorem.sentence()
+                title: fakerAPI.lorem.sentence()
             }
 
             const res = await request
