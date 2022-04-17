@@ -25,9 +25,9 @@ https://gorest.co.in    [External API]
 ```
 Generate Token for external API
 ```bash
-- Open the URL "https://gorest.co.in/" --> sign up
+- Open the URL "https://gorest.co.in/" --> Login / SignUp
 - Click on Login user drop down --> Access Token
-- Replace the actual token in .env file with <REPLACE_WITH_REAL_TOKEN>
+- Create .env file and add actual token, refer .env.example file
 ```
 
 Run tests and Generate Report
@@ -41,7 +41,7 @@ npm test  [run all tests]
 	- Mochawesome Report
 	- Mocha framework to organize tests
 	- Config data reader from .env file using dotenv library
-	- Runtime dynamic test data generation using faker library
+	- Runtime dynamic test data generation using fakerjs library
 
 ## Folder structure:
 ```
