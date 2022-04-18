@@ -15,11 +15,14 @@ describe('Validate GOREST User APIs', () => {
             const response = await makePOSTCall('users', createUserPayload);
             expect(response.statusCode).to.equal(200);
             expect(response.body.code).to.equal(201);
-            expect(response.body.data.name).to.equal(createUserPayload.name);
-            expect(response.body.data.email).to.equal(createUserPayload.email);
-            expect(response.body.data.gender).to.equal(createUserPayload.gender.toLowerCase());
-            expect(response.body.data.status).to.equal(createUserPayload.status.toLowerCase());
-            userID = response.body.data.id;
+
+            const { name, email, gender, status, id } = response.body.data;
+
+            expect(name).to.equal(createUserPayload.name);
+            expect(email).to.equal(createUserPayload.email);
+            expect(gender).to.equal(createUserPayload.gender.toLowerCase());
+            expect(status).to.equal(createUserPayload.status.toLowerCase());
+            userID = id;
         })
     })
 
