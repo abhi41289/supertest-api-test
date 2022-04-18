@@ -1,4 +1,4 @@
-import { API_TOKEN, request } from 'src/config/supertest'
+import { API_TOKEN, request } from 'src/config/supertest';
 import { randomUserPayload } from 'src/resources/payloads';
 
 export const createRandomeUser = async () => {

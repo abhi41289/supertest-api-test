@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { request, API_TOKEN } from 'src/config/supertest'
+import { API_TOKEN, request } from 'src/config/supertest';
 import { createUserPayload, updateUserPayload } from 'src/resources/payloads';
 
 
