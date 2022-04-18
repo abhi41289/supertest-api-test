@@ -37,20 +37,27 @@ npm test  [run all tests]
 ```
 
 ## Key Features:
-	- Supertest Library
+	- Mocha framework
+	- Supertest library
 	- Mochawesome Report
+	- Custome types implementation
 	- Mocha framework to organize tests
-	- Config data reader from .env file using dotenv library
+	- Maintain confidential info like token using dotenv library
 	- Runtime dynamic test data generation using fakerjs library
 
 ## Folder structure:
 ```
+├───.vscode
+|    └───settings.json
 ├───src
+|    ├───app
 |    ├───config
 |    ├───helper
 |    ├───resources
-|    └───test
+|    ├───test
+|    └───types
 ├───.env
+├───.env.example
 ├───.gitignore
 ├───package-lock.json
 ├───package.json

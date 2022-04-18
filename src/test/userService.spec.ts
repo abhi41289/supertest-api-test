@@ -3,7 +3,7 @@ import { request } from 'src/config/supertest';
 import { makeDELETECall, makeGETCall, makePOSTCall, makePUTCall } from 'src/helper/apicalls';
 import { createUserPayload, updateUserPayload } from 'src/resources/payloads';
 import { user_query_params } from 'src/resources/query';
-
+import { Person } from 'src/types/custome';
 
 describe('Validate GOREST User APIs', () => {
 
@@ -16,7 +16,8 @@ describe('Validate GOREST User APIs', () => {
             expect(response.statusCode).to.equal(200);
             expect(response.body.code).to.equal(201);
 
-            const { name, email, gender, status, id } = response.body.data;
+            const responseData: Person = response.body.data;
+            const { name, email, gender, status, id } = responseData;
 
             expect(name).to.equal(createUserPayload.name);
             expect(email).to.equal(createUserPayload.email);
@@ -40,10 +41,10 @@ describe('Validate GOREST User APIs', () => {
         it('should validate /USERS with query parameter', async () => {
             const response = await request.get('users').query(user_query_params)
             expect(response.statusCode).to.equal(200);
-            response.body.data.forEach((data: any) => {
-                expect(data.id).to.satisfy(Number.isInteger);
-                expect(data.gender).to.equal('male');
-                expect(data.status).to.equal('active');
+            response.body.data.forEach((person: Person) => {
+                expect(person.id).to.satisfy(Number.isInteger);
+                expect(person.gender).to.equal('male');
+                expect(person.status).to.equal('active');
             })
         })
 
