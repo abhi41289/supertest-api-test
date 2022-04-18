@@ -20,3 +20,18 @@ export const updateUserPayload = {
     name: faker.name.firstName(),
     email: faker.internet.email(),
 }
+
+export const validPostPayload = (id: number) => {
+    return {
+        user_id: id,
+        title: fakerAPI.lorem.sentence(),
+        body: fakerAPI.lorem.paragraph()
+    }
+}
+
+export const invalidPostPayload = (id: number) => {
+    return {
+        user_id: id,
+        title: fakerAPI.lorem.sentence()
+    }
+}
