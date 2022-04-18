@@ -1,14 +1,11 @@
 import { expect } from 'chai';
-import urls from 'src/config/urls';
+import { requestLocal } from 'src/config/supertest';
 import { Employee } from 'src/types/custome';
-import supertest from 'supertest';
-
-const request = supertest(urls.localapi);
 
 describe('Validate local APIs', () => {
 
     it('should validate GET all employee', async () => {
-        const response = await request.get('employee');
+        const response = await requestLocal.get('employee');
         expect(response.statusCode).to.equal(200)
 
         const responseBody: Employee[] = response.body;
@@ -24,7 +21,7 @@ describe('Validate local APIs', () => {
     })
 
     it('should validate GET employee by {empid}', async () => {
-        const response = await request.get('employee').query({ 'empid': 100 });
+        const response = await requestLocal.get('employee').query({ 'empid': 100 });
         expect(response.statusCode).to.equal(200);
 
         const responseBody: Employee[] = response.body;
