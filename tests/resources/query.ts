@@ -1,6 +1,6 @@
-import { API_TOKEN } from "src/config/supertest";
+import { API_TOKEN } from "tests/config/supertest";
 
-export const user_query_params = {
+export const userQueryParams = {
     'access-token': API_TOKEN,
     'page': 5,
     'gender': 'male',

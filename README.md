@@ -2,7 +2,7 @@
 API Test Automation is mocha framework to perform API testing using supertest TypeScript library.
 
 ## Requirements:
-[![NodeJs](https://img.shields.io/badge/-NodeJS%20v12%20OR%20later-%23339933?logo=npm)](https://nodejs.org/en/download/)
+[![NodeJs](https://img.shields.io/badge/-NodeJS-%23339933?logo=npm)](https://nodejs.org/en/download/)
 [![VSCode](https://img.shields.io/badge/-Visual%20Studio%20Code-%233178C6?logo=visual-studio-code)](https://code.visualstudio.com/download)
 
 ## Getting Started:
@@ -19,8 +19,7 @@ npm install
 
 API Sources
 ```
-http://localhost:3000   [Localhost API]
-https://gorest.co.in    [External API]
+https://gorest.co.in
 
 ```
 Generate Token for external API
@@ -32,29 +31,26 @@ Generate Token for external API
 
 Run tests and Generate Report
 ```bash
-npm start [start local api server]
 npm test  [run all tests]
 ```
 
 ## Key Features:
-	- Mocha framework
 	- Supertest library
 	- Mochawesome Report
-	- Custome types implementation
+	- Custom types implementation
 	- Mocha framework to organize tests
 	- Maintain confidential info like token using dotenv library
-	- Runtime dynamic test data generation using fakerjs library
+	- Runtime dynamic test data generation using faker js library
 
 ## Folder structure:
 ```
 ├───.vscode
 |    └───settings.json
-├───src
-|    ├───app
+├───tests
 |    ├───config
 |    ├───helper
 |    ├───resources
-|    ├───test
+|    ├───specs
 |    └───types
 ├───.env
 ├───.env.example

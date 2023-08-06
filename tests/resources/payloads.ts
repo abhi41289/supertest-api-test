@@ -1,23 +1,23 @@
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
 export const fakerAPI = faker;
 
 export const createUserPayload = {
     email: faker.internet.email(),
-    name: faker.name.firstName(),
+    name: faker.person.firstName(),
     gender: 'male',
     status: 'active'
 };
 
 export const randomUserPayload = {
     email: faker.internet.email(),
-    name: faker.name.firstName(),
+    name: faker.person.firstName(),
     gender: 'male',
     status: 'active'
 };
 
 export const updateUserPayload = {
-    name: faker.name.firstName(),
+    name: faker.person.firstName(),
     email: faker.internet.email(),
 }
 
